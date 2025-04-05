@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>MoviesPLEX - Index</title>
+</head>
+
+<body class="indexPage">
+    <%- include('partials/navbar') %>
+    <header>
+        <div class="titleSorter">
+
+        <h1>MoviesPLEX</h1>
+        <p>The greatest movies in the world!</p>
+        <form action="">
+            <label for="filter">Filter by age rating</label>
+            <select name="filter" id="">
+                <option value="all">All</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Showing all <%= filter %> movies</p>
+        <p>Movies Available (<%= movies.length %>)</p>
+    </div>
+    </header>
+    <main>
+        <div class="moviesDisplay">
+            <% for (let i=0; i < movies.length; i++) { %>
+                <div class="individualMovie">
+                    <img src=<%=movies[i].poster %> alt="">
+                    <h2><%= movies[i].title %></h2>
+                    <p>Age Rating: <%= movies[i].ageRating %></p>
+                    <p>IMDB: <%= movies[i].rating %></p>
+                </div>
+                <% } %>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
